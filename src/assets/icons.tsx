@@ -9,10 +9,10 @@ export const Arrow: React.FC<ComponentProps<"svg">> = (props) => (
   >
     <path
       d="M11 23L2.7323 14.3561C1.7559 13.3352 1.7559 11.6648 2.7323 10.644L11 2"
-      stroke-width="3"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="3"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

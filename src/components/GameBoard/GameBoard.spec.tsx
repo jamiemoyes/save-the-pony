@@ -39,33 +39,4 @@ describe("<GameBoard />", () => {
       })
     );
   });
-
-  test("Won game should display updated characters", () => {});
-  test("Lost game should display updated characters", () => {});
-
-  // test("should trigger call to send direction when keypad is clicked", async () => {
-  //   renderComponent();
-  //   console.log(queryClient.getQueryCache());
-
-  //   const { gameDetails } = gameMocks.moved();
-  //   await userEvent.click(screen.getByRole("button", { name: "move-south" }));
-  //   console.log({ ...queryClient.getQueryCache() });
-
-  //   expect(
-  //     await screen.findByRole("img", {
-  //       name: `The pony is at location ${gameDetails.pony[0]}`,
-  //     })
-  //   );
-
-  //   expect(
-  //     screen.getByRole("img", {
-  //       name: `The domokun is at location ${gameDetails.domokun[0]}`,
-  //     })
-  //   );
-  //   expect(
-  //     screen.getByRole("img", {
-  //       name: `The end point is at location ${gameDetails["end-point"][0]}`,
-  //     })
-  //   );
-  // });
 });

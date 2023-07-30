@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { apiUrls } from "../apiUrls";
+import { apiUrls } from "../shared/apiUrls";
 
 interface CreateGameMutationParams {
   mazeWidth: number;

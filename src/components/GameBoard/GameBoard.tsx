@@ -48,7 +48,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameDetails }) => {
     return "";
   }
 
-  return gameDetails ? (
+  return (
     <div className={classNames.boardContainer}>
       <div className={classNames.gameBoard}>
         {gameDetails.data.map((cellBorders, index) => (
@@ -63,7 +63,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameDetails }) => {
         ))}
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default GameBoard;

@@ -10,7 +10,7 @@ import { describe, test, vi, expect, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { server } from "../../mocks/server";
-import { apiUrls } from "../../apiUrls";
+import { apiUrls } from "../../shared/apiUrls";
 import { rest } from "msw";
 
 const mockOnCreate = vi.fn();
@@ -77,7 +77,7 @@ describe("<CreateGameForm />", () => {
 
   test("should handle server error correctly", async () => {
     server.use(
-      rest.post(apiUrls.maze.create, (req, res, ctx) => {
+      rest.post(apiUrls.maze.create, (_, res, ctx) => {
         return res(ctx.status(403), ctx.text("Only ponies can play"));
       })
     );

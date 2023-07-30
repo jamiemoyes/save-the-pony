@@ -1,8 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { apiUrls } from "../apiUrls";
+import { apiUrls } from "../shared/apiUrls";
 import { Direction, GameState } from "../shared/types";
 
-//TODO check if we can update game state via react query mutationKey
 export const useSendDirection = (
   mazeId: string,
   onSuccess: (data: GameState) => void

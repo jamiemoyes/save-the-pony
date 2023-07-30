@@ -1,4 +1,4 @@
-import { GameState, GameStateResponse, State } from "../shared/types";
+import { State, GameStateResponse } from "../shared/types";
 
 const mockInitialGameDetails: GameStateResponse = {
   pony: [291],
@@ -344,7 +344,7 @@ const mockInitalGameState = {
   "state-result": "Successfully created",
 };
 
-const movedGameDetails = {
+const movedGameDetails: GameStateResponse = {
   pony: [309],
   domokun: [138],
   "end-point": [70],
@@ -678,7 +678,7 @@ const movedGameDetails = {
   ],
   maze_id: "a4746758-2784-4604-ba4d-daa68eae3581",
   "game-state": {
-    state: "active",
+    state: State.Active,
     "state-result": "Move accepted",
   },
 };

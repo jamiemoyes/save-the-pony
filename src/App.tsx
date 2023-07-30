@@ -30,18 +30,23 @@ function App() {
   return (
     <div className={classNames.appContainer}>
       <QueryClientProvider client={queryClient}>
-        <div className={classNames.title}>
+        <header className={classNames.title}>
           <Badge />
           <h1>Save the Pony</h1>
-        </div>
-        {matchId ? (
-          <>
-            <Game mazeId={matchId} restartGame={() => setMatchId(undefined)} />
-            <p>{matchId}</p>
-          </>
-        ) : (
-          <CreateGameForm onCreate={onGameCreate} />
-        )}
+        </header>
+        <main>
+          {matchId ? (
+            <>
+              <Game
+                mazeId={matchId}
+                restartGame={() => setMatchId(undefined)}
+              />
+              <p>{matchId}</p>
+            </>
+          ) : (
+            <CreateGameForm onCreate={onGameCreate} />
+          )}
+        </main>
       </QueryClientProvider>
     </div>
   );

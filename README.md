@@ -1,39 +1,98 @@
-# React + TypeScript + Vite
+# Save the Pony
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+Help save the pony! The aim of this game is to help the pony escape the maze without being caught by the monster who protects the maze - the Domokun!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repo:
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone https://github.com/jamiemoyes/save-the-pony.git
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+2. Install dependencies:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   npm i
+   ```
 
-# Ideas
+3. Run the app:
 
-- Hard reset / soft reset
-- Add Timer
-- Add leaderboard - store scores in localstorage
-- Add co-ordinate system to describe where the items are
-- Add constants file with query keys in
+   ```bash
+   npm run pony
+   ```
 
-# Notes
+4. Open app: Either click the link in terminal or open [localhost:5173](http://localhost:5173/)
 
-Found a bug where if you make an invalid move as the domokun is approaching you it doesnt count as a loss.
+### Project Structure
+
+- 📂 src
+  - 📂 assets - Fonts & Icons used
+  - 📂 components
+    - ControlButton - button used to control game state
+    - CreateGameForm - form to allow user to configure game settings
+    - Game - container to display all game related components i.e the maze, the controls and the game over screen
+    - GameBoard - displays the maze along with the characters
+    - GameOver - screen to display win/lose content at end of game
+    - GamePad - controls to move the pony around the maze
+  - 📂 hooks - all my hooks are for handling react-query API calls
+    - useCreateGamePony - sets up a new game and retrieves the mazeId for the created game
+    - useGetGameState - retrieves the state of a game of a certain state, returns new board details and location of characters
+    - useSendDirection - mutation which sends a direction to move the pony, returns a game state containing if the game is over and if the move was accepted
+  - 📂 mocks - contains mock server setup and mock responses for testing
+  - 📂 shared
+    - types - contains shared types used throughout the repo
+    - apiUrls - central source of api urls that can be used throughout repo
+
+## Project Information
+
+General information about the Save the Pony app and repository.
+
+### Tech Stack
+
+Here are some of the key frameworks used to create this app:
+
+- React
+- Typescript
+- CSS Modules
+- Vitest
+- React Testing Library
+- Mock Service Worker
+
+### Potential Improvements
+
+- Allow for a soft reset so that the user can recreate a game with the settings they previously set up
+- Add a timer to gamify the app more
+- Add local leaderboard - Add a leaderboard of times, could be stored in localstorage to prevent need to implement any authentication
+- Add co-ordinate system to describe where the items are - to assist with accessibility
+
+### Features
+
+- Responsive - uses a component-based design to natively support across all devices
+- Accessibility - each page passes WCAG-2.1 accessibility standard (verified with Axe dev tool)
+- Form validation - native HTML validation is used for fast client side validation, and any errors returned from the backend are displayed on the form.
+- Experimental View Transitions API - Makes use of new viewTransitions API where supported to allow animated transition between form screen and maze screen.
+
+### Testing
+
+Vitest is used as the test framework to provide super fast results. To run, do the following steps:
+
+1. To run all tests:
+
+   ```bash
+   npm run test
+   ```
+
+2. To run coverage across components
+
+   ```bash
+   npm run coverage
+   ```
+
+### Notes
+
+Existing bug in backend - if you make an invalid move as the domokun is approaching you it doesnt count as a loss and you can carry on the game.

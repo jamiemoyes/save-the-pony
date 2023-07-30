@@ -1,4 +1,3 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useGetGameState } from "../../hooks";
 import { useSendDirection } from "../../hooks/useSendDirection";
 import ControlButton from "../ControlButton/ControlButton";
@@ -14,14 +13,12 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = ({ mazeId, restartGame }) => {
-  const queryClient = useQueryClient();
-  const { data: gameDetails } = useGetGameState(mazeId);
+  const { data: gameDetails, refetch: refetchGame } = useGetGameState(mazeId);
 
   function invalidateGameBoard(response: GameState) {
     if (response.state === State.Active) {
-      // Co-ordinates have now changes so current board is invalid, invalidating on react-query trigger
-      // a refetch of the new updated board
-      queryClient.invalidateQueries({ queryKey: ["game-state", mazeId] });
+      // Co-ordinates have now changes so current board is invalid, refetch to get updated version of game
+      refetchGame();
     }
   }
 

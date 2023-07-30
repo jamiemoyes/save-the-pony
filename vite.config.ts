@@ -11,7 +11,4 @@ export default defineConfig({
       provider: "v8",
     },
   },
-  server: {
-    host: true,
-  },
 });
