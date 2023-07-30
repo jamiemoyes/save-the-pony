@@ -1,0 +1,27 @@
+.createGameForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  background: #363636;
+  width: 20rem;
+  border: solid 1px rgb(69, 69, 69);
+  /* view-transition-name: group; */
+}
+
+.inputContainer {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.createGameForm button {
+  align-self: center;
+  width: 100%;
+}
+
+::view-transition-old(create-transition-form),
+::view-transition-new(create-transition-form) {
+  width: 30rem + 4rem;
+}

@@ -1,0 +1,36 @@
+.boardContainer {
+  display: grid;
+  background: #363636;
+  place-content: center;
+  padding: 1rem;
+  gap: 2rem;
+  border: solid 1px rgb(69, 69, 69);
+}
+
+.gameBoard {
+  display: grid;
+  grid-template-columns: repeat(var(--game-board-width), 1fr);
+  grid-template-rows: repeat(var(--game-board-height), 1fr);
+  border-right: solid 1px white;
+  border-bottom: solid 1px white;
+  aspect-ratio: 1;
+  width: min(calc(100vw - 2rem), 30rem);
+}
+
+.boardCell {
+  display: grid;
+  overflow: hidden;
+  place-content: center;
+}
+
+.cell-border-west {
+  border-left: solid 1px white;
+}
+
+.cell-border-north {
+  border-top: solid 1px white;
+}
+
+/* .cell-border-north.cell-border-west {
+  border-top-left-radius: 5px;
+} */

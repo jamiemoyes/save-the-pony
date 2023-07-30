@@ -1,0 +1,11 @@
+.title {
+  width: 100dvw;
+  display: grid;
+  place-content: center;
+}
+
+.appContainer {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+}
