@@ -29,6 +29,13 @@ async function assertGameCharacters(gameDetails: GameStateResponse) {
   ).toBeVisible();
 }
 
+async function assertRestartButton() {
+  const restartButton = await screen.findByRole("button", { name: "Restart" });
+  expect(restartButton).toBeVisible();
+  await userEvent.click(restartButton);
+  expect(mockRestartGame).toHaveBeenCalled();
+}
+
 describe("<Game />", () => {
   afterEach(() => {
     cleanup();
@@ -43,6 +50,16 @@ describe("<Game />", () => {
       </QueryClientProvider>
     );
   }
+
+  test("should display maze and controls correctly", async () => {
+    renderComponent();
+    await assertGameCharacters(gameMocks.initial().gameDetails);
+    ["move-north", "move-east", "move-west", "move-south"].forEach((name) =>
+      expect(screen.getByRole("button", { name }))
+    );
+    await assertRestartButton();
+  });
+
   test("should show game over screen when the game has been lost", async () => {
     const { gameState } = gameMocks.over();
     server.use(
@@ -74,6 +91,7 @@ describe("<Game />", () => {
 
     expect(await screen.findByText("You won!")).toBeVisible();
     expect(screen.getByText("You won. Game ended")).toBeVisible();
+    await assertRestartButton();
   });
 
   test("should trigger call to send direction when keypad is clicked", async () => {
@@ -92,5 +110,6 @@ describe("<Game />", () => {
 
     await userEvent.click(screen.getByRole("button", { name: "move-south" }));
     await assertGameCharacters(movedGameDetails);
+    await assertRestartButton();
   });
 });

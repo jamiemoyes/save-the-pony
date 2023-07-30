@@ -4,6 +4,18 @@
 
 Help save the pony! The aim of this game is to help the pony escape the maze without being caught by the monster who protects the maze - the Domokun!
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Project Structure](#project-structure)
+- [Project Information](#project-information)
+  - [Tech Stack](#tech-stack)
+  - [Features](#features)
+  - [Potential Improvements](#potential-improvements)
+  - [Testing](#testing)
+  - [Notes](#notes)
+
 ## Getting Started
 
 ### Installation
@@ -72,10 +84,10 @@ Here are some of the key frameworks used to create this app:
 
 ### Potential Improvements
 
-- Allow for a soft reset so that the user can recreate a game with the settings they previously set up
 - Add a timer to gamify the app more
-- Add local leaderboard - Add a leaderboard of times, could be stored in localstorage to prevent need to implement any authentication
-- Add co-ordinate system to describe where the items are - to assist with accessibility
+- Add local leader board - Add a leader board of times, could be stored in localstorage to prevent need to implement any authentication
+- Allow for a soft reset so that the user can recreate a game with the settings they previously set up
+- Add co-ordinate system to describe where the items are to assist with accessibility
 
 ### Testing
 

@@ -37,7 +37,7 @@ const Game: React.FC<GameProps> = ({ mazeId, restartGame }) => {
 
   const RestartButton = () => (
     <ControlButton onClick={restartGame}>
-      Restart <Reload />
+      Restart <Reload aria-hidden="true" />
     </ControlButton>
   );
 
