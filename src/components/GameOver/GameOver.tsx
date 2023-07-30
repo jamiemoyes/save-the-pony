@@ -33,4 +33,4 @@ const GameOver: React.FC<GameState & PropsWithChildren> = ({
   );
 };
 
-export default GameOver;
+export { GameOver };

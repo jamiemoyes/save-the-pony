@@ -28,27 +28,22 @@ function App() {
   }, []);
 
   return (
-    <div className={classNames.appContainer}>
-      <QueryClientProvider client={queryClient}>
-        <header className={classNames.title}>
-          <Badge />
-          <h1>Save the Pony</h1>
-        </header>
-        <main>
-          {matchId ? (
-            <>
-              <Game
-                mazeId={matchId}
-                restartGame={() => setMatchId(undefined)}
-              />
-              <p>{matchId}</p>
-            </>
-          ) : (
-            <CreateGameForm onCreate={onGameCreate} />
-          )}
-        </main>
-      </QueryClientProvider>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <header className={classNames.title}>
+        <Badge />
+        <h1>Save the Pony</h1>
+      </header>
+      <main className={classNames.appContainer}>
+        {matchId ? (
+          <>
+            <Game mazeId={matchId} restartGame={() => setMatchId(undefined)} />
+            <p>{matchId}</p>
+          </>
+        ) : (
+          <CreateGameForm onCreate={onGameCreate} />
+        )}
+      </main>
+    </QueryClientProvider>
   );
 }
 export default App;

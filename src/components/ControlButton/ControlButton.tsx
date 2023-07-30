@@ -7,4 +7,4 @@ const ControlButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (
   return <button className={classes.controlButton} {...props} />;
 };
 
-export default ControlButton;
+export { ControlButton };

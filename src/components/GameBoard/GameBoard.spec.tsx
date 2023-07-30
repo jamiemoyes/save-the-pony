@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { describe, test, expect, afterEach } from "vitest";
-import GameBoard from "./GameBoard";
+import { GameBoard } from "./GameBoard";
 import { gameMocks } from "../../mocks/gameDetailsMock";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 

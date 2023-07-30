@@ -66,4 +66,4 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameDetails }) => {
   );
 };
 
-export default GameBoard;
+export { GameBoard };

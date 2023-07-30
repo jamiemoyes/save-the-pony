@@ -15,7 +15,7 @@
   border-right: solid 1px white;
   border-bottom: solid 1px white;
   aspect-ratio: var(--game-board-width) / var(--game-board-height);
-  width: min(calc(100vw - 2rem), 30rem);
+  width: min(calc(100vw - 4rem), 30rem);
 }
 
 .boardCell {
@@ -31,7 +31,3 @@
 .cell-border-north {
   border-top: solid 1px white;
 }
-
-/* .cell-border-north.cell-border-west {
-  border-top-left-radius: 5px;
-} */

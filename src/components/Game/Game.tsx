@@ -1,8 +1,8 @@
 import { useGetGameState } from "../../hooks";
 import { useSendDirection } from "../../hooks/useSendDirection";
-import ControlButton from "../ControlButton/ControlButton";
-import GameBoard from "../GameBoard/GameBoard";
-import GameOver from "../GameOver/GameOver";
+import { ControlButton } from "../ControlButton/ControlButton";
+import { GameBoard } from "../GameBoard/GameBoard";
+import { GameOver } from "../GameOver/GameOver";
 import { GamePad } from "../GamePad/GamePad";
 import { Direction, GameState, State } from "../../shared/types";
 import classes from "./Game.module.css";
