@@ -4,6 +4,7 @@ import classNames from "./App.module.css";
 import { CreateGameForm } from "./components/CreateGameForm/CreateGameForm";
 import { useCallback, useState } from "react";
 import { Game } from "./components/Game/Game";
+import { Badge } from "./assets/icons";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ function App() {
     <div className={classNames.appContainer}>
       <QueryClientProvider client={queryClient}>
         <div className={classNames.title}>
+          <Badge />
           <h1>Save the Pony</h1>
         </div>
         {matchId ? (

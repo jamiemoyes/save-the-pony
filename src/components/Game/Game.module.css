@@ -1,0 +1,21 @@
+.gameContainer {
+  background: #f2f2f2;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  display: grid;
+  gap: 1rem;
+  border: solid 1px rgb(69, 69, 69);
+}
+
+.controlSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gameStateControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: end;
+}

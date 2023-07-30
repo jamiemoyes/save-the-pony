@@ -1,17 +1,25 @@
+import { PropsWithChildren } from "react";
 import { apiUrls } from "../../apiUrls";
 import { GameState, State } from "../../shared/types";
+import classes from "./GameOver.module.css";
 
-const GameOver: React.FC<GameState> = ({
+const GameOver: React.FC<GameState & PropsWithChildren> = ({
   "state-result": stateResult,
   state,
   "hidden-url": hiddenUrl,
+  children,
 }) => {
   const title = state === State.Won ? "You won!" : "Game over";
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{stateResult}</p>
+    <div className={classes.gameOverContainer}>
       {hiddenUrl && <img src={apiUrls.image(hiddenUrl)} />}
+      <div className={classes.gameOverContent}>
+        <div>
+          <h1>{title}</h1>
+          <p>{stateResult}</p>
+        </div>
+        {children}
+      </div>
     </div>
   );
 };

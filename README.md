@@ -28,11 +28,11 @@ If you are developing a production application, we recommend updating the config
 
 # Ideas
 
-Hard reset / soft reset
-Add Timer
-Add leaderboard - store scores in localstorage
-Add co-ordinate system to describe where the items are
-Add constants file with query keys in
+- Hard reset / soft reset
+- Add Timer
+- Add leaderboard - store scores in localstorage
+- Add co-ordinate system to describe where the items are
+- Add constants file with query keys in
 
 # Notes
 

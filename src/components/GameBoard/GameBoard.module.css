@@ -1,9 +1,10 @@
 .boardContainer {
   display: grid;
-  background: #363636;
+  background: #c05269;
   place-content: center;
   padding: 1rem;
   gap: 2rem;
+  border-radius: 0.2rem;
   border: solid 1px rgb(69, 69, 69);
 }
 
@@ -13,7 +14,7 @@
   grid-template-rows: repeat(var(--game-board-height), 1fr);
   border-right: solid 1px white;
   border-bottom: solid 1px white;
-  aspect-ratio: 1;
+  aspect-ratio: var(--game-board-width) / var(--game-board-height);
   width: min(calc(100vw - 2rem), 30rem);
 }
 

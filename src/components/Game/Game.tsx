@@ -6,7 +6,8 @@ import GameBoard from "../GameBoard/GameBoard";
 import GameOver from "../GameOver/GameOver";
 import { GamePad } from "../GamePad/GamePad";
 import { Direction, GameState, State } from "../../shared/types";
-
+import classes from "./Game.module.css";
+import { Reload } from "../../assets/icons";
 interface GameProps {
   mazeId: string;
   restartGame: () => void;
@@ -18,6 +19,8 @@ const Game: React.FC<GameProps> = ({ mazeId, restartGame }) => {
 
   function invalidateGameBoard(response: GameState) {
     if (response.state === State.Active) {
+      // Co-ordinates have now changes so current board is invalid, invalidating on react-query trigger
+      // a refetch of the new updated board
       queryClient.invalidateQueries({ queryKey: ["game-state", mazeId] });
     }
   }
@@ -33,16 +36,31 @@ const Game: React.FC<GameProps> = ({ mazeId, restartGame }) => {
 
   if (!gameDetails) return null;
 
-  if (gameState && gameState.state !== State.Active) {
-    return <GameOver {...gameState} />;
-  }
+  const gameEnded = gameState && gameState.state !== State.Active;
+
+  const RestartButton = () => (
+    <ControlButton onClick={restartGame}>
+      Restart <Reload />
+    </ControlButton>
+  );
 
   return (
-    <div>
-      <GameBoard gameDetails={gameDetails} />
-      <GamePad onDirectionClick={handleMoveCharacter} />
-      <ControlButton onClick={() => {}}>Restart</ControlButton>
-      <ControlButton onClick={restartGame}>Exit</ControlButton>
+    <div className={classes.gameContainer}>
+      {gameEnded ? (
+        <GameOver {...gameState}>
+          <RestartButton />
+        </GameOver>
+      ) : (
+        <>
+          <GameBoard gameDetails={gameDetails} />
+          <div className={classes.controlSection}>
+            <GamePad onDirectionClick={handleMoveCharacter} />
+            <div className={classes.gameStateControls}>
+              <RestartButton />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

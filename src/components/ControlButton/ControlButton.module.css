@@ -1,4 +1,23 @@
 .controlButton {
   padding: 1rem;
   width: max-content;
+  border-radius: 0.4rem;
+  display: grid;
+  gap: 0.5rem;
+  min-width: 8rem;
+  align-items: center;
+  justify-items: start;
+  grid-template-columns: 1fr 1rem;
+}
+
+.controlButton svg {
+  fill: white;
+  stroke: white;
+  width: 0.8rem;
+  height: 1rem;
+}
+
+.controlButton:hover > svg {
+  fill: black;
+  stroke: black;
 }

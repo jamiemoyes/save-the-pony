@@ -23,21 +23,6 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameDetails }) => {
   }, [gameDetails]);
 
   function getCharacterIdentifier(location: number) {
-    // if (location === ponyLocation && location === endPoint)
-    //   return (
-    //     <span role="img" aria-label={`Target reached at location ${location}`}>
-    //       🌞
-    //     </span>
-    //   );
-    // if (location === ponyLocation && location === domokun)
-    //   return (
-    //     <span
-    //       role="img"
-    //       aria-label={`The domokun caught you at location ${location}`}
-    //     >
-    //       🪦
-    //     </span>
-    //   );
     if (location === ponyLocation)
       return (
         <span role="img" aria-label={`The pony is at location ${location}`}>
